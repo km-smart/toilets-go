@@ -6,6 +6,7 @@
     width: 100vw;
     height: 100vh;
     background-color: #d2f3ba;
+    position: relative;
 }
 
 header{
@@ -182,5 +183,86 @@ footer .input2{
     padding: 1rem;
     background-color: #fff;
     border: 1px solid skyblue;
-    border-radius: .5rem;
+    border-radius: .5rem;   
+}
+.map>.modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+   position: absolute;
+   
+   
+}
+.modal>.popup{
+    width: 60vw;
+    height: 60vh;
+    top: 90%;
+    left: 90%;
+    background-color: #fff;
+    transform: translate(-115%,-120%);
+    position: absolute;
+    border: 1px solid #000;
+}
+.modal>.popup>h1{
+   text-align: center;
+   margin-top: 30px;
+}
+.modal>.popup>p{
+    text-align: center;
+    margin-top: 10px;
+    
+}
+.modal>.popup>input{
+    background-color: #fff;
+    border: 1px solid #000;
+    display: flex;
+    width: 21rem;
+    margin-left: 30px;
+    height: 17rem;
+    padding: 0 1rem;
+    margin-top: 40px;
+}
+.modal>.popup>.btn{
+   position: relative;
+    
+}
+.modal>.popup>.btn1>button{
+    width: 16vw;
+    height: 4vh;
+   position: absolute;
+   margin-top: 150px;
+   margin-left: 70px;
+   
+}
+.modal>.popup>.btn2>button{
+    width: 16vw;
+    height: 4vh;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 240px;
+    background-color: #d2f3ba;
+    color: #000;
+    border: #d2f3ba;
+    border-radius: 10px;
+}
+.modal>.popup>p{
+    text-align: center;
+    margin-top: 30px;
+    
+}
+.modal>.popup>.rate{
+    background: url(https://aldo814.github.io/jobcloud/html/images/user/star_bg02.png)no-repeat;
+    width: 121px;
+    height: 20px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 150px;
+    
+}
+
+.modal>.popup>.rate span{position: absolute;background:
+     url(https://aldo814.github.io/jobcloud/html/images/user/star02.png);width:
+     auto;height: 20px;
+     
 }
