@@ -14,16 +14,16 @@ public class JDBCommect {
 	
 	public JDBCommect() {
 		try {
-			//JBDC 드라이버 로드
+			//JBDC driver
 			Class.forName("oracle.jdbc.OracleDriver");
 			
-			//DB에 연결
+			//DB info
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			String id = "km";
 			String pwd = "1234";
 			con = DriverManager.getConnection(url, id, pwd);
 			
-			System.out.println("DB 연결 성공(기본 생성자)");
+			System.out.println("DB connect");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,7 +36,7 @@ public class JDBCommect {
 			if(psmt != null) psmt.close();
 			if(con != null) con.close();
 			
-			System.out.println("JDBC 자원 해제");
+			System.out.println("JDBC close");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
