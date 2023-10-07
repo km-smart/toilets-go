@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import java.sql.ResultSet;
 
 public class JsonUtil {
-	// ´ÜÀÏ JSON return
+	// ï¿½ï¿½ï¿½ï¿½ JSON return
 	public static JSONObject convertOne(ResultSet resultSet) throws Exception {
 		resultSet.next();
 		
@@ -18,7 +18,7 @@ public class JsonUtil {
 		return obj;
 	}
 	
-	// º¹¼ö JSON return
+	// ï¿½ï¿½ï¿½ï¿½ JSON return
 	public static JSONArray convertList(ResultSet resultSet) throws Exception {
 
 		JSONArray jsonArray = new JSONArray();
