@@ -6,19 +6,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class JDBCommect {
+public class JDBConnect {
 	public Connection con;
 	public Statement stmt;
 	public PreparedStatement psmt;
 	public ResultSet rs;
 	
-	public JDBCommect() {
+	public JDBConnect() {
 		try {
 			//JBDC driver
 			Class.forName("oracle.jdbc.OracleDriver");
 			
 			//DB info
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@10.154.25.110:1521:xe";
 			String id = "km";
 			String pwd = "1234";
 			con = DriverManager.getConnection(url, id, pwd);
