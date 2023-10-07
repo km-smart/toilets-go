@@ -1,0 +1,345 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* 메인창 */
+.map {
+    width: 100vw;
+    height: 100vh;
+    background-color: #d2f3ba;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    padding: 2rem;
+    box-sizing: border-box;
+    gap: 1rem;
+}
+
+header .sub1 {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    background-color: #fff;
+    border: 1px solid skyblue;
+}
+
+header .input {
+    flex: 1;
+    border-radius: 50px;
+    height: 3rem;
+    background-color: #fff;
+    border: 1px solid skyblue;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    padding: 2rem;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+footer .sub2 {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    background-color: #fff;
+    border: 1px solid skyblue;
+    margin-bottom: 1rem;
+}
+
+footer .input2 {
+    height: 3rem;
+    border-radius: 3rem;
+    background-color: #fff;
+    border: 1px solid skyblue;
+}
+
+/* 정보창 */
+.chang {
+    width: 100vw;
+    height: 30%;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 5;
+    position: fixed;
+    display: none;
+}
+
+.chang>.button1 {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 3%;
+    bottom: 3%;
+    border-radius: 100%;
+    background-color: #fff;
+    border: 1px solid skyblue;
+}
+
+.chang .sect01 {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 1rem;
+    margin-left: 41rem;
+}
+
+.sect01 .line-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+.sect01 .line-box>span {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.sect01 .line-01 {
+    transform: rotate(135deg) translateX(0%);
+}
+
+.sect01 .line-02 {
+    transform: rotate(45deg) translateX(0%);
+}
+
+.chang>.button2 {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 3%;
+    bottom: 10%;
+    border-radius: 100%;
+    background-color: #fff;
+    border: 1px solid skyblue;
+}
+
+/* 등록창 */
+.info-popup {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: none;
+    left: 0;
+    z-index: 9999999;
+}
+.info-popup .close-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.info-popup .close-btn span {
+    background-color: rgb(221, 245, 255);
+    border: 1px solid skyblue;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 1rem 0 0;
+}
+
+.info-popup form {
+    margin: 2rem;
+    background-color: #fff;
+    border: 1px solid skyblue;
+    display: flex;
+    border-radius: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    height: calc(100% - 4rem);
+}
+
+.info-popup form .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 2rem;
+}
+
+.info-popup form .input-box div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-popup form .input-box span {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.info-popup form .input-box input {
+    background-color: #fff;
+    border: 1px solid skyblue;
+    display: flex;
+    border-radius: 1.5rem;
+    height: 3rem;
+    padding: 0 1rem;
+}
+
+.info-popup form .input-box textarea {
+    background-color: #fff;
+    border: 1px solid skyblue;
+    display: flex;
+    border-radius: 1.5rem;
+    height: 10rem;
+    padding: 0 1rem;
+}
+
+.btn-wrap button {
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid skyblue;
+    border-radius: .5rem;
+}
+/* 리뷰창 */
+
+.info-popup2{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #d2f3ba;
+    display: none;
+    z-index: 9999;
+    margin: 30px;
+    box-sizing: border-box;
+}
+.info-header{
+    /* border: 1px solid black; */
+    height: 5rem;
+    margin: 2rem;
+    width: 90%;
+    text-align: left;
+    font-size: 2rem;
+    padding-top: 1.5rem;
+}
+.contents{
+    /* border: 1px solid black; */
+    height: 60%;
+    margin: 2rem;
+    width: 90%;
+    overflow-y: scroll;
+}
+.contents .cont-box{
+    width: 100%;
+    height: 15%;
+    margin-top: 1rem;
+    background-color: #fff;
+    border-radius: .6rem;
+    text-align: left;
+}
+.btn .btn-box{
+    width: 85%;
+    height: 3rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid skyblue;
+    border-radius: .6rem;
+    margin-left: 2rem;
+    margin-top: 5rem;
+}
+/* 리뷰작성창 */
+.popup {
+    width: 60vw;
+    height: 60vh;
+    top: 90%;
+    left: 90%;
+    background-color: #fff;
+    transform: translate(-115%, -120%);
+    position: absolute;
+    border: 1px solid #000;
+    display: none;
+}
+
+.popup>h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.popup>p {
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+.popup>input {
+    background-color: #fff;
+    border: 1px solid #000;
+    display: flex;
+    width: 21rem;
+    margin-left: 30px;
+    height: 17rem;
+    padding: 0 1rem;
+    margin-top: 40px;
+}
+
+.popup>.btn {
+    position: relative;
+
+}
+
+.popup>.btn1>button {
+    width: 16vw;
+    height: 4vh;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 70px;
+
+}
+
+.popup>.btn2>button {
+    width: 16vw;
+    height: 4vh;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 240px;
+    background-color: #d2f3ba;
+    color: #000;
+    border: #d2f3ba;
+    border-radius: 10px;
+}
+
+.popup>p {
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+.popup>.rate {
+    background: url(https://aldo814.github.io/jobcloud/html/images/user/star_bg02.png)no-repeat;
+    width: 121px;
+    height: 20px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 150px;
+
+}
+
+.popup>.rate span {
+    position: absolute;
+    background:
+        url(https://aldo814.github.io/jobcloud/html/images/user/star02.png);
+    width:
+        auto;
+    height: 20px;
+
+}
