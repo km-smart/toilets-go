@@ -5,11 +5,12 @@
     pageEncoding="UTF-8"%>
 
 <%
-	JDBConnect jdbCommect = new JDBConnect();
-	jdbCommect.stmt = jdbCommect.con.createStatement();
-	ResultSet resultSet = jdbCommect.stmt.executeQuery("SELECT * "
+	JDBConnect JDBConnect = new JDBConnect();
+	JDBConnect.stmt = JDBConnect.con.createStatement();
+	ResultSet resultSet = JDBConnect.stmt.executeQuery("SELECT * "
 	+ "FROM TOILET_INFO TI "
 	+ "JOIN TOILET_DETAIL TD ON TI.IDX = TD.TOILET_IDX ");
 //			+ "WHERE TD.IDX IN ('2')");
 	out.print(JsonUtil.convertList(resultSet));
 %>
+

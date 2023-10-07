@@ -20,6 +20,7 @@ header {
     padding: 2rem;
     box-sizing: border-box;
     gap: 1rem;
+    z-index: 1;
 }
 
 header .sub1 {
@@ -27,7 +28,7 @@ header .sub1 {
     height: 3rem;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid skyblue;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 header .input {
@@ -35,7 +36,7 @@ header .input {
     border-radius: 50px;
     height: 3rem;
     background-color: #fff;
-    border: 1px solid skyblue;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 footer {
@@ -53,7 +54,7 @@ footer .sub2 {
     height: 3rem;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid skyblue;
+    border: 1px solid rgb(0, 0, 0);
     margin-bottom: 1rem;
 }
 
@@ -61,7 +62,7 @@ footer .input2 {
     height: 3rem;
     border-radius: 3rem;
     background-color: #fff;
-    border: 1px solid skyblue;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 /* 정보창 */
@@ -83,7 +84,7 @@ footer .input2 {
     bottom: 3%;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid skyblue;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 .chang .sect01 {
@@ -127,7 +128,7 @@ footer .input2 {
     bottom: 10%;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid skyblue;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 /* 등록창 */
@@ -139,6 +140,7 @@ footer .input2 {
     display: none;
     left: 0;
     z-index: 9999999;
+    
 }
 .info-popup .close-btn {
     display: flex;
@@ -146,7 +148,7 @@ footer .input2 {
 }
 
 .info-popup .close-btn span {
-    background-color: rgb(221, 245, 255);
+    background-color: rgb(255, 255, 255);
     border: 1px solid skyblue;
     width: 3rem;
     height: 3rem;
@@ -219,7 +221,7 @@ footer .input2 {
     top: 0;
     left: 0;
     background-color: #e8fcda;
-    /* display: none; */
+    display: none;
     z-index: 9999;
     margin: 30px;
 }
@@ -263,7 +265,18 @@ footer .input2 {
     margin-left: 60px;
     
 }
-.btn .btn-box{
+.btn .btn-box1{
+    width: 30%;
+    height: 3rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid skyblue;
+    border-radius: .6rem;
+    margin-left: 2rem;
+    margin-top: 5rem;
+    text-align: center;
+}
+.btn .btn-box2{
     width: 30%;
     height: 3rem;
     padding: 1rem;
@@ -370,4 +383,39 @@ footer .input2 {
         auto;
     height: 20px;
 
+
+}
+.modal1{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+    justify-content: center;
+    
+}
+.modal1>.popup1 {
+    width: 50vw;
+    height: 40vh;
+    background-color: #ffffff;
+    border: 1px solid skyblue;
+    border-radius: 1rem;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+}
+
+.popup1>.btn {
+    position: relative;
+
+}
+.popup1>div>button {
+    width: 20vw;
+    height: 4vh;
+    color: #000;
+    background-color: #ffffff;
+    border: 1px solid skyblue;
+    border-radius: .6rem;
 }
