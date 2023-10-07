@@ -26,7 +26,7 @@
         		+ "MAIN_TEXT, "
         		+ "INSERT_DT, "
         		+ "USER_IP    "
-        	+ ") VALUES ("
+        		+ ") VALUES ("
         		+ "SQ_REVIEW.NEXTVAL,"
         		+ "?, "
         		+ "?, "
@@ -34,7 +34,7 @@
         		+ "?, "
         		+ "sysdate, "
         		+ "?"
-        	+ ")"; // ? 부분이 동적 파라미터입니다.
+        		+ ")"; // ? 부분이 동적 파라미터입니다.
 
         jdbCommect.psmt = jdbCommect.con.prepareStatement(sql);
         jdbCommect.psmt.setString(1, toiletIdx); // 파라미터 매핑
