@@ -12,7 +12,8 @@ CREATE TABLE REVIEW (
 ALTER TABLE REVIEW
 ADD USER_IP CHAR(16);
 
--- 리뷰정보등록insert into REVIEW (
+-- 리뷰정보등록
+INSERT INTO REVIEW (
 	IDX,
 	TOILET_IDX,
 	NAME,
@@ -20,7 +21,7 @@ ADD USER_IP CHAR(16);
 	MAIN_TEXT,
 	INSERT_DT,
 	USER_IP
-) values (
+) VALUES (
 	SQ_REVIEW.NEXTVAL,
 	1,
 	'아무ww',
@@ -32,6 +33,10 @@ ADD USER_IP CHAR(16);
 
 -- 리뷰정보조회
 SELECT NAME, SCORE, MAIN_TEXT, INSERT_DT, USER_IP
+FROM REVIEW;
+
+-- 리뷰정보조회
+SELECT *
 FROM REVIEW;
 
 -- 화장실 인덱스로 리뷰갯수조회
