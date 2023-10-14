@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>호랑이조 퍼블리싱</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="kakaoMap.css">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1bd0675660b131330a85b7ac6b454462"></script>
   <script src="./js/index.js"></script>
 </head>
 <body>
@@ -15,9 +17,13 @@
   <div class="map" id="map">
   </div>
   <header>
+<<<<<<< HEAD
     <div class="sub1"></div>
+    <div class="input">
+      
+    </div>
+=======
     <div class="input"></div>
-    <button class="flqb">리뷰</button>
   </header>
   <footer>
     <div class="sub2"></div>
@@ -32,11 +38,12 @@
     <div class="right">
       <div class="top cancel">X</div>
       <div class="bottom">
-        <div class="button">1</div>
-        <div class="button">2</div>
+        <div class="button1"><h5>리뷰</h5></div>
+        <div class="button2"><h5>상세</h5></div>
       </div>
     </div>
   </div>
+
   <!-- 리뷰창 -->
   <div class="info-popup2 popup-wrap">
     <div class="info-header">
@@ -92,7 +99,6 @@
     </div>
   </div>
   <!-- 리뷰작성창 -->
-  
   <div class="modal popup-wrap">
     <div class="popup">
       <h1>화장실 리뷰 작성하기</h1>
@@ -117,11 +123,11 @@
 
 
     </div>
-  </div> 
-  <!-- 등록창 -->
-  <div class="info-popup popup-wrap">
-    <form>
-      <div class="top">
+    </div> 
+    <!-- 등록창 -->
+   <div class="info-popup popup-wrap">
+      <form>  
+        <div class="top">
         <div class="close-btn">
           <h3>X</h3>
         </div>
@@ -180,7 +186,7 @@
           </div>
 
           <div class="input-box">
-            <span>비데</span>
+            <span>티슈</span>
             <div>
               <input type="radio" name="gender" value="male">
               <label for="male">O</label>
@@ -190,63 +196,46 @@
           </div>
 
           <div class="input-box">
-            <span>비데</span>
+            <span>청결도</span>
             <div>
               <input type="radio" name="gender" value="male">
-              <label for="male">O</label>
+              <label for="male">약함</label>
               <input type="radio" name="gender" value="female">
-              <label for="female">X</label>
+              <label for="female">중간</label>
+              <input type="radio" name="gender" value="female">
+              <label for="female">강함</label>
             </div>
           </div>
 
           <div class="input-box">
-            <span>비데</span>
+            <span>수압</span>
             <div>
               <input type="radio" name="gender" value="male">
-              <label for="male">O</label>
+              <label for="male">약함</label>
               <input type="radio" name="gender" value="female">
-              <label for="female">X</label>
+              <label for="female">중간</label>
+              <input type="radio" name="gender" value="female">
+              <label for="female">강함</label>
             </div>
           </div>
-
-          <div class="input-box">
-            <span>비데</span>
-            <div>
-              <input type="radio" name="gender" value="male">
-              <label for="male">O</label>
-              <input type="radio" name="gender" value="female">
-              <label for="female">X</label>
-            </div>
-          </div>
-
-          <div class="input-box">
-            <span>비데</span>
-            <div>
-              <input type="radio" name="gender" value="male">
-              <label for="male">O</label>
-              <input type="radio" name="gender" value="female">
-              <label for="female">X</label>
-            </div>
-          </div>
-          <!-- <textarea cols="50" rows="10"></textarea> -->
         </div>
       </div>
 
       <div class="btn-wrap">
-        <button class="drhg">등록하기</button>
+        <button id="drhg">등록하기</button>
         <button class="cancel">등록취소</button>
       </div>
     </form>
-    <div class="uppopup">
+    <!-- <div class="modal1">
       <div class="popup1">
         <h1>정말로 등록할거니</h1>
         <div class="btn1">
-          <button class="upyes">넹</button>
-          <button class="upno">아니용</button>
+          <button>넹</button>
+          <button class="cancel">아니용</button>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </body>
 
 </html>
