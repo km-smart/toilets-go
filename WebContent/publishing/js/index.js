@@ -20,8 +20,12 @@ $(function(){
     $(".sect01 .line-box").on("click",function(){
         $(".chang").hide();
     })
-    $(".chang .button2").on("click",function(){
+    $(".chang .button1").on("click",function(){
         $(".info-popup2").show();
+        $(".chang").hide();
+    })
+    $(".chang .button2").on("click",function(){
+        $(".info-popup").show();
         $(".chang").hide();
     })
     $(".btn-box1").on("click",function(){
@@ -29,7 +33,6 @@ $(function(){
         $(".info-popup2").show();
     })
     $(".btn-box2").on("click",function(){
-        $("header").show();
         $(".chang").show();
         $(".info-popup2").hide();
     })
