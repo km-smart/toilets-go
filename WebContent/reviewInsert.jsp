@@ -44,6 +44,23 @@
         jdbCommect.psmt.setString(5, userIp); // 파라미터 매핑
 
         jdbCommect.psmt.execute();
+        
+        
+        
+        // 2. 동적 SQL 생성
+        String updtSql = "UPDATE TOILET_INFO "
+       		+ "SET SCORE_AVG = ("
+       		+ "		SELECT AVG(score)"
+       		+ "		FROM REVIEW"
+       		+ "		WHERE TOILET_IDX = ?"
+       		+ "		GROUP BY TOILET_IDX"
+       		+ "	)"
+       		+ "	WHERE IDX = ?"; // ? 부분이 동적 파라미터입니다.
+
+        jdbCommect.psmt = jdbCommect.con.prepareStatement(updtSql);
+        jdbCommect.psmt.setString(1, toiletIdx); // 파라미터 매핑
+
+        jdbCommect.psmt.execute();
 
         // 3. ResultSet을 JSON으로 변환
         out.print("{\"mgs\": \"ok\"}");
