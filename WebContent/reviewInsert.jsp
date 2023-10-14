@@ -46,7 +46,7 @@
         jdbCommect.psmt.execute();
 
         // 3. ResultSet을 JSON으로 변환
-        out.print("ok");
+        out.print("{\"mgs\": \"ok\"}");
     } catch (Exception e) {
         e.printStackTrace();
 
