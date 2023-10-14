@@ -56,8 +56,9 @@ $(function () {
     // todo: 정훈용 임시 테이터
     ajax("toiletDetail", {idx: 2}, function(result){
         console.log("성공 함수!", result)
+    }, function(){
+        console.log("등록에 실패하였습니다.");
     });
-
 });
 
 function ajax(url, data, sucsFunc, errFunc){
