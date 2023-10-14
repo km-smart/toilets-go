@@ -8,7 +8,7 @@
 	JDBConnect JDBConnect = new JDBConnect();
 	JDBConnect.stmt = JDBConnect.con.createStatement();
 	ResultSet resultSet = JDBConnect.stmt.executeQuery(
-			"TD.TOILET_IDX"+
+			"SELECT TD.TOILET_IDX"+
 			"TD.GENDER_YN"+
 			"TD.LOCK_YN"+
 			"TD.PRESSURE_YN"+

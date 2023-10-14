@@ -13,3 +13,4 @@
 //			+ "WHERE TD.IDX IN ('2')");
 	out.print(JsonUtil.convertList(resultSet));
 %>
+
