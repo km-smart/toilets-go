@@ -34,5 +34,5 @@
 		+"JOIN TOILET_DETAIL TD ON LI.IDX=TD.IDX "
 		+"WHERE TI.IDX  = "+request.getParameter("idx")
 );
-	out.print(JsonUtil.convertList(resultSet));
+	out.print(JsonUtil.convertOne(resultSet));
 %>
