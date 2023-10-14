@@ -19,7 +19,6 @@
   <header>
 
     <div class="input"></div>
-
   </header>
   <footer>
     <div class="sub2"></div>
@@ -104,12 +103,20 @@
         <button class="cancel">취소</button>
       </div>
       <div class="btn2">
-        <button>추가하기 </button>
+        <button class="cnrk">추가하기 </button>
       </div>
       <p>화장실을 사용하고 느낌점을 작성해주세요</p>
-      <div class="rate">
-        <span style="width: 50%"></span>
+
+      <!-- 별점 -->
+      <div class="star-rating">
+        <span class="star" data-rating="1">☆</span>
+        <span class="star" data-rating="2">☆</span>
+        <span class="star" data-rating="3">☆</span>
+        <span class="star" data-rating="4">☆</span>
+        <span class="star" data-rating="5">☆</span>
       </div>
+
+
     </div>
     </div> 
     <!-- 등록창 -->
@@ -117,10 +124,10 @@
       <form>  
         <div class="top">
         <div class="close-btn">
-          <span>X</span>
+          <h3>X</h3>
         </div>
+        <!--카카오 주소 검색으로 나오는 애-->
         <div class="input-box">
-          <!--카카오 주소 검색으로 나오는 애-->
           <span>주소</span>
           <input type="text" readonly/>
         </div>
@@ -129,11 +136,13 @@
           <span>상세 주소</span>
           <input type="text" />
         </div>
+
         <div class="input-wrap">
           <div class="input-box">
             <span>이름</span>
             <input type="text" />
           </div>
+
           <div class="input-box">
             <span>변기개수</span>
             <input type="number" />
@@ -205,13 +214,23 @@
             </div>
           </div>
         </div>
-        <div class="btn-wrap">
+      </div>
+
+      <div class="btn-wrap">
         <button id="drhg">등록하기</button>
         <button class="cancel">등록취소</button>
-       </div>
-      </form>
-     </div>
-   </div>
-  </div>
-  </body>
+      </div>
+    </form>
+    <!-- <div class="modal1">
+      <div class="popup1">
+        <h1>정말로 등록할거니</h1>
+        <div class="btn1">
+          <button>넹</button>
+          <button class="cancel">아니용</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</body>
+
 </html>

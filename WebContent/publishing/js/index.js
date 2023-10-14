@@ -80,15 +80,6 @@ $(function(){
     $(".cancel").on("click",function(e){
         $(this).parents(".popup-wrap").hide();
     });
-    // 맵 생성
-    createMap();
-
-    // todo: 정훈용 임시 테이터
-    ajax("toiletDetail", {idx: 2}, function(result){
-        console.log("성공 함수!", result)
-    }, function(){
-        console.log("등록에 실패하였습니다.");
-    });
 });
 
 function ajax(url, data, sucsFunc, errFunc){
