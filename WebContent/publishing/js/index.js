@@ -52,7 +52,11 @@ $(function () {
     });
     // 맵 생성
     createMap();
+
+    
 });
+
+
 function createMap() {
     const container = document.querySelector('.map');
 
