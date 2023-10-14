@@ -53,7 +53,19 @@ $(function () {
     // 맵 생성
     createMap();
 
+    const idx = 2; // todo: 정훈용 임시 테이터
     
+    $.ajax({
+        method: "GET",
+        url: "/toiletDetail.jsp",
+        dataType: "json",
+        data: {idx: idx},
+        success: (result) => {
+            console.log(result);
+        }, error: (err, obj, msg)=> {
+            console.log(err, obj, msg);
+        }
+    })
 });
 
 
