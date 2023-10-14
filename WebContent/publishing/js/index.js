@@ -53,21 +53,28 @@ $(function () {
     // 맵 생성
     createMap();
 
-    const idx = 2; // todo: 정훈용 임시 테이터
-    
+    // todo: 정훈용 임시 테이터
+    ajax("toiletDetail", {idx: 2}, function(result){
+        console.log("성공 함수!", result)
+    });
+
+});
+
+function ajax(url, data, sucsFunc, errFunc){
     $.ajax({
         method: "GET",
-        url: "/toiletDetail.jsp",
+        url: `/${url}.jsp`,
         dataType: "json",
-        data: {idx: idx},
+        data: data,
         success: (result) => {
+            if(sucsFunc) sucsFunc(result);
             console.log(result);
         }, error: (err, obj, msg)=> {
+            if(sucsFunc) errFunc(err, obj, msg);
             console.log(err, obj, msg);
         }
     })
-});
-
+}
 
 function createMap() {
     const container = document.querySelector('.map');
