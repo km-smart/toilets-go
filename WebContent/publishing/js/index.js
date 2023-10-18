@@ -80,6 +80,7 @@ $(function(){
     $(".cancel").on("click",function(e){
         $(this).parents(".popup-wrap").hide();
     });
+    createMap()
 });
 
 function ajax(url, data, sucsFunc, errFunc){
@@ -99,7 +100,7 @@ function ajax(url, data, sucsFunc, errFunc){
 }
 
 function createMap() {
-    const container = document.querySelector('.map');
+    const container = document.querySelector('.map'); //지도를 표시할 div
 
     // todo: 사용자의 좌표를 받아와서 설정
     const options = {
@@ -108,5 +109,27 @@ function createMap() {
     };
 
     map = new kakao.maps.Map(container, options);
-    q
+    
+//여기부터 수정
+
+    // 마커가 표시될 위치입니다
+    markerPosition  = new kakao.maps.LatLng(37.39277391544831, 126.92039682109709); 
+
+    
+    imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
+    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+    markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+    markerPosition = new kakao.maps.LatLng(37.39277391544831, 126.92039682109709); // 마커가 표시될 위치입니다
+
+
+    // 마커를 생성합니다
+    marker = new kakao.maps.Marker({
+        position: markerPosition,
+        image: markerImage 
+    });
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+
+
 };
