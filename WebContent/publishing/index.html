@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="kakaoMap.css">
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1bd0675660b131330a85b7ac6b454462"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1bd0675660b131330a85b7ac6b454462&libraries=services,drawing"></script>
   <script src="./js/index.js"></script>
 </head>
 <body>
@@ -17,8 +17,11 @@
   <div class="map" id="map">
   </div>
   <header>
-
-    <div class="input"></div>
+    <div class="sub1"></div>
+    <div class="input">
+      <input type="text" value="이태원 맛집" id="keyword" size="30"> 
+      <button id="searchBtn">검색하기</button> 
+    </div>
   </header>
   <footer>
     <div class="sub2"></div>
