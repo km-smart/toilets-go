@@ -79,11 +79,12 @@ function ajax(url, data, sucsFunc, errFunc){
 function createMap() {
     const container = document.querySelector('.map');
 
-    // todo: 사용자의 좌표를 받아와서 설정
-    const options = {
-        center: new kakao.maps.LatLng(37.39277391544831, 126.92039682109709), // 근명고등학교 좌표
-        level: 4
-    };
+    navigator.geolocation.watchPosition(function(result){
+        const options = {
+            center: new kakao.maps.LatLng(result.coords.latitude, result.coords.longitude),
+            level: 4
+        };
 
-    map = new kakao.maps.Map(container, options);
+        map = new kakao.maps.Map(container, options);
+    });
 };
