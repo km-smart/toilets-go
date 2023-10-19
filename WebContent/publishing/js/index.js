@@ -106,6 +106,7 @@ function ajax(url, data, sucsFunc, errFunc){
 }
 
 function createMap() {
+
     const container = document.querySelector(".map");
 
     // todo: 사용자의 좌표를 받아와서 설정
@@ -254,3 +255,16 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     }
 }
+=======
+    const container = document.querySelector('.map');
+
+    navigator.geolocation.watchPosition(function(result){
+        const options = {
+            center: new kakao.maps.LatLng(result.coords.latitude, result.coords.longitude),
+            level: 4
+        };
+
+        map = new kakao.maps.Map(container, options);
+    });
+};
+>>>>>>> a55cef26db0d96f174bdb213a71fb13d3e789b5c
