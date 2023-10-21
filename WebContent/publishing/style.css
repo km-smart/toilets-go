@@ -30,17 +30,48 @@ header .sub1 {
     height: 3rem;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid skyblue;
 }
 
 header .input {
     flex: 1;
-    border-radius: 50px;
     height: 3rem;
-    background-color: #fff;
-    border: 1px solid rgb(0, 0, 0);
+    position: relative;
 }
 
+header .input .search-result{
+    height: 50vh;
+    overflow: scroll;
+    background: rgba(255,255,255,0.8);
+    border-radius: 1rem;
+    display: none;
+}
+
+header .input input{
+    border-radius: 50px;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid skyblue;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+header .input input:focus-visible{
+    outline: none !important;
+}
+.ico_search[data-v-ae75f7f2] {
+    stroke: #1565c0;
+}
+header .input span#searchBtn{
+    position:absolute;
+    right: 0;
+    top: 1.5rem;
+    transform: translateY(-50%);
+}
+header svg {
+    width: 24px;
+    padding: 0 14px;
+}
 
 
 footer {
@@ -58,7 +89,7 @@ footer .sub2 {
     height: 3rem;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid skyblue;
     margin-bottom: 1rem;
 }
 
@@ -66,7 +97,7 @@ footer .input2 {
     height: 3rem;
     border-radius: 3rem;
     background-color: #fff;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid skyblue;
 }
 
 /* 정보창 */
@@ -95,7 +126,7 @@ footer .input2 {
     height: 50px;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid skyblue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,7 +141,7 @@ footer .input2 {
     height: 50px;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid skyblue;
     position: relative;
 }
 .chang> .right> .bottom> .button2 {
@@ -118,7 +149,7 @@ footer .input2 {
     height: 50px;
     border-radius: 100%;
     background-color: #fff;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid skyblue;
     position: relative;
 }
 .chang> .right> .bottom> .button1 > h5{
@@ -246,7 +277,7 @@ footer .input2 {
     transform: translate(-50%,-50%);
     position: absolute;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid skyblue;
 }
 .popup1 > h1{
     text-align: center;
@@ -272,7 +303,7 @@ footer .input2 {
     margin: 30px;
 }
 .info-header{
-    /* border: 1px solid black; */
+    /* border: 1px solid skyblue; */
     height: 5rem;
     margin: 2rem;
     width: 90%;
@@ -292,7 +323,7 @@ footer .input2 {
    border: 1px solid skyblue;
 }
 .contents{
-    /* border: 1px solid black; */
+    /* border: 1px solid skyblue; */
     height: 60%;
     margin: 2rem;
     width: 90%;
@@ -354,7 +385,7 @@ footer .input2 {
     background-color: #fff;
     transform: translate(-115%, -120%);
     position: absolute;
-    border: 1px solid #000;
+    border: 1px solid skyblue;
     z-index: 99999999;
 }
 
@@ -376,7 +407,7 @@ footer .input2 {
 
 .popup>input {
     background-color: #fff;
-    border: 1px solid #000;
+    border: 1px solid skyblue;
     display: flex;
     width: 21rem;
     margin-left: 30px;
@@ -406,7 +437,7 @@ footer .input2 {
     margin-top: 150px;
     margin-left: 240px;
     background-color: #d2f3ba;
-    color: #000;
+    color: skyblue;
     border: #d2f3ba;
     border-radius: 10px;
 }
@@ -442,7 +473,7 @@ footer .input2 {
 .popup1>div>button {
     width: 20vw;
     height: 4vh;
-    color: #000;
+    color: skyblue;
     background-color: #ffffff;
     border: 1px solid skyblue;
     border-radius: .6rem;
