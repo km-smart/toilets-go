@@ -234,7 +234,7 @@ function createMap() {
     imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
     imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
     markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-    markerPosition = new kakao.maps.LatLng(37.39277391544831, 126.92039682109709); // 마커가 표시될 위치입니다
+    // markerPosition = new kakao.maps.LatLng(37.39277391544831, 126.92039682109709); // 마커가 표시될 위치입니다
 
 
     // 마커를 생성합니다
@@ -244,6 +244,24 @@ function createMap() {
     });
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
+
+
+    for (var i = 0; i < positions.length; i ++) {
+    
+        // 마커 이미지의 이미지 크기 입니다
+        var imageSize = new kakao.maps.Size(24, 35); 
+        
+        // 마커 이미지를 생성합니다    
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+        
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: new kakao.maps.LatLng(date[i].latitude, date[i].longitude), // 마커를 표시할 위치
+            title : positions[i].idx, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            image : markerImage // 마커 이미지 
+        });
+    }
 
     
 };
