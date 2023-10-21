@@ -381,14 +381,14 @@ footer .input2 {
     background-color: #fff;
     border: 1px solid #000;
     display: flex;
-    width: 2rem;
-    margin-left: 180px;
+    width: 4rem;
+    margin-left: 170px;
     height: 1rem;
     padding: 0 1rem;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 .popup>textarea{
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: 56px;
 }
 
@@ -420,7 +420,7 @@ footer .input2 {
 
 .popup>p {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 
 }
 /* 별점 */
