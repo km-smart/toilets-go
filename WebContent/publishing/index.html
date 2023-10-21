@@ -12,39 +12,22 @@
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1bd0675660b131330a85b7ac6b454462&libraries=services,drawing"></script>
   <script src="./js/index.js"></script>
 </head>
+
 <body>
   <!-- 메인화면 -->
   <div class="map" id="map">
   </div>
   <header>
-    <div class="sub1"></div>
     <div class="input">
-      <div class="map_wrap">
-        <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    
-        <div id="menu_wrap" >
-            <div class="option">
-                <div>
-                    <form onsubmit="searchPlaces(); return false;">
-                        키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
-                        <button type="submit">검색하기</button> 
-                    </form>
-                </div>
-            </div>
-            <hr>
-            <div id="searchResult" class="bg_white">
-              <ul id="placesList"></ul>
-            <div id="pagination"></div>
-            </div>
-            
-        </div>
+      <input type="text" id="keyword" size="15" placeholder="장소를 검색해주세요.">
+      <span id="searchBtn"><img src="img/search.png" alt=""></span>
+      <ul class="search-result" id="placesList"></ul>
     </div>
-    </div>
-    
+
   </header>
   <footer>
-    <div class="sub2"></div>
-    <div class="input2"></div>
+    <div class="sub2"><img src="img/location.png" alt=""></div>
+    <div class="input2"><img src="img/plus.png" alt="추가 버튼 아이콘">화장실 추가 등록</div>
   </footer>
   <!-- 정보창 -->
   <div class="chang popup-wrap">
@@ -216,7 +199,7 @@
       <div class="btn-box1">
         리뷰쓰기
       </div>
-      <div class="btn-box2" >
+      <div class="btn-box2">
         뒤로가기
       </div>
     </div>
@@ -248,44 +231,44 @@
 
 
     </div>
-    </div> 
-    <!-- 등록창 -->
-   <div class="info-popup popup-wrap">
-      <form>  
-        <div class="top">
+  </div>
+  <!-- 등록창 -->
+  <div class="info-popup popup-wrap">
+    <form>
+      <div class="top">
         <div class="close-btn">
           <h3>X</h3>
         </div>
         <!--카카오 주소 검색으로 나오는 애-->
         <div class="input-box">
           <span>주소</span>
-          <input type="text" readonly/>
+          <input type="text" name="address" />
         </div>
         <div class="input-box">
           <!--사용자가 입력하는 애-->
           <span>상세 주소</span>
-          <input type="text" />
+          <input type="text" name="detailedAddress"/>
         </div>
 
         <div class="input-wrap">
-          <div class="input-box">
-            <span>이름</span>
-            <input type="text" />
+          <div class="input-box" style="grid-column: 1/7">
+            <span>화장실 별칭</span>
+            <input type="text" name="restroomName"/>
+          </div>
+
+          <div class="input-box" style="grid-column: 7/13">
+            <span>변기 개수</span>
+            <input type="number" name="toiletCnt"/>
           </div>
 
           <div class="input-box">
-            <span>변기개수</span>
-            <input type="number" />
-          </div>
-
-          <div class="input-box">
-            <span>성별</span>
+            <span>성별 구분</span>
             <div>
-              <input type="radio" name="gender" value="male">
+              <input type="radio" name="genderYn" value="0">
               <label for="male">남</label>
-              <input type="radio" name="gender" value="female">
+              <input type="radio" name="genderYn" value="1">
               <label for="female">여</label>
-              <input type="radio" name="gender" value="female">
+              <input type="radio" name="genderYn" value="2">
               <label for="female">남녀공용</label>
             </div>
           </div>
@@ -293,74 +276,62 @@
           <div class="input-box">
             <span>잠금유무 </span>
             <div>
-              <input type="radio" name="a" value="male">
-              <label for="male">O</label>
-              <input type="radio" name="a" value="female">
-              <label for="female">X</label>
+              <input type="radio" name="lockYn" value="Y">
+              <label for="Y">O</label>
+              <input type="radio" name="lockYn" value="N">
+              <label for="N">X</label>
             </div>
           </div>
 
           <div class="input-box">
             <span>비데</span>
             <div>
-              <input type="radio" name="b" value="male">
-              <label for="male">O</label>
-              <input type="radio" name="b" value="female">
-              <label for="female">X</label>
+              <input type="radio" name="bidetYn" value="Y">
+              <label for="Y">O</label>
+              <input type="radio" name="bidetYn" value="N">
+              <label for="N">X</label>
             </div>
           </div>
 
           <div class="input-box">
             <span>티슈</span>
             <div>
-              <input type="radio" name="c" value="male">
-              <label for="male">O</label>
-              <input type="radio" name="c" value="female">
-              <label for="female">X</label>
+              <input type="radio" name="tissueYn" value="Y">
+              <label for="Y">O</label>
+              <input type="radio" name="tissueYn" value="N">
+              <label for="N">X</label>
             </div>
           </div>
 
           <div class="input-box">
-            <span>청결도</span>
+            <span>비누</span>
             <div>
-              <input type="radio" name="d" value="male">
-              <label for="male">약함</label>
-              <input type="radio" name="d" value="female">
-              <label for="female">중간</label>
-              <input type="radio" name="d" value="female">
-              <label for="female">강함</label>
+              <input type="radio" name="soapYn" value="Y">
+              <label for="Y">O</label>
+              <input type="radio" name="soapYn" value="N">
+              <label for="N">X</label>
             </div>
           </div>
+        </div>
 
-          <div class="input-box">
-            <span>수압</span>
-            <div>
-              <input type="radio" name="e" value="male">
-              <label for="male">약함</label>
-              <input type="radio" name="e" value="female">
-              <label for="female">중간</label>
-              <input type="radio" name="e" value="female">
-              <label for="female">강함</label>
-            </div>
-          </div>
+        <div class="input-box">
+          <span>청결도</span>
+          <textarea name="cleanliness" id="" cols="30" rows="10"></textarea>
+        </div>
+        
+        <div class="input-box">
+          <span>시설 상태</span>
+          <textarea name="facility" id="" cols="30" rows="10"></textarea>
         </div>
       </div>
 
       <div class="btn-wrap">
-        <button id="drhg">등록하기</button>
+        <button id="infoAddBtn">등록하기</button>
         <button class="cancel">등록취소</button>
       </div>
     </form>
-    <!-- <div class="modal1">
-      <div class="popup1">
-        <h1>정말로 등록할거니</h1>
-        <div class="btn1">
-          <button>넹</button>
-          <button class="cancel">아니용</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
+  </div>
+  <a id="flaticon" href="https://www.flaticon.com/kr/free-icons/" title="아이콘">아이콘 제작자: srip - Flaticon</a>
 </body>
 
 </html>
