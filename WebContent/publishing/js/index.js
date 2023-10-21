@@ -87,6 +87,43 @@ $(function () {
         $(this).parents(".popup-wrap").hide();
     });
 
+     // "input2" 클릭 시 "info-popup popup-wrap"에서 텍스트 입력 가능하게
+     $("footer .input2").on("click", function () {
+        $(".info-popup").show();
+        $("header").hide();
+        $("footer").hide();
+        // 텍스트 입력 가능하도록 해제
+        $(".info-popup input[type='text']").prop('readonly', false);
+    });
+
+    // "button2" 클릭 시 "info-popup popup-wrap"에서 텍스트 읽기 전용으로
+    $(".chang .button2").on("click", function(){
+        $(".info-popup").show();
+        $(".chang").hide();
+        // 텍스트 읽기 전용으로 설정
+        $(".info-popup input[type='text']").prop('readonly', true);
+    });
+
+    // "input2" 클릭 시 "info-popup popup-wrap"에서 텍스트 입력 가능하게
+    $("footer .input2").on("click", function () {
+        $(".info-popup").show();
+        $("header").hide();
+        $("footer").hide();
+        // "등록하기"와 "등록취소" 버튼 나타나게
+        $(".info-popup .btn-wrap button").show();
+    });
+
+    // "button2" 클릭 시 "chang popup-wrap"에서 텍스트 읽기 전용으로
+    $(".chang .button2").on("click", function(){
+        $(".info-popup").show();
+        $(".chang").hide();
+        // "등록하기"와 "등록취소" 버튼 숨기게
+        $(".info-popup .btn-wrap button").hide();
+    });
+
+
+
+
     createMap();
 
     refreshMarker();
