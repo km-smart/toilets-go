@@ -255,7 +255,7 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     }
 }
-=======
+
     const container = document.querySelector('.map');
 
     navigator.geolocation.watchPosition(function(result){
@@ -266,5 +266,17 @@ function removeAllChildNods(el) {
 
         map = new kakao.maps.Map(container, options);
     });
-};
->>>>>>> a55cef26db0d96f174bdb213a71fb13d3e789b5c
+
+const testDate=[
+    {
+        "name":"test1",
+        "mainText":"본문입니다2",
+        "score":4
+    },
+    {
+    "name":"test2",
+        "mainText":"본문입니다2",
+        "score":1
+
+    }
+]
