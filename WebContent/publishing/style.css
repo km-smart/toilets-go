@@ -59,20 +59,15 @@ header .input input{
 header .input input:focus-visible{
     outline: none !important;
 }
-.ico_search[data-v-ae75f7f2] {
-    stroke: #1565c0;
-}
 header .input span#searchBtn{
     position:absolute;
-    right: 0;
+    right: 1rem;
     top: 1.5rem;
     transform: translateY(-50%);
 }
-header svg {
-    width: 24px;
-    padding: 0 14px;
+header .input span#searchBtn img{
+    height: 1.5rem;
 }
-
 
 footer {
     position: fixed;
@@ -88,9 +83,17 @@ footer .sub2 {
     width: 3rem;
     height: 3rem;
     border-radius: 100%;
-    background-color: #fff;
     border: 1px solid skyblue;
     margin-bottom: 1rem;
+    padding: 1px 3px 5px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .sub2 img {
+    width: 2.2rem;
+    height: 2.2rem;
 }
 
 footer .input2 {
@@ -98,6 +101,15 @@ footer .input2 {
     border-radius: 3rem;
     background-color: #fff;
     border: 1px solid skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    color: rgb(39, 112, 141);
+}
+footer .input2 img {
+    width: auto;
+    height: 1.2rem;
 }
 
 /* 정보창 */
@@ -477,4 +489,13 @@ footer .input2 {
     background-color: #ffffff;
     border: 1px solid skyblue;
     border-radius: .6rem;
+}
+
+#flaticon{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999999;
+    color: #555;
+    font-size: 0.8rem;
 }
