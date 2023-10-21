@@ -381,11 +381,15 @@ footer .input2 {
     background-color: #fff;
     border: 1px solid #000;
     display: flex;
-    width: 21rem;
-    margin-left: 30px;
-    height: 17rem;
+    width: 2rem;
+    margin-left: 180px;
+    height: 1rem;
     padding: 0 1rem;
+    margin-top: 5px;
+}
+.popup>textarea{
     margin-top: 40px;
+    margin-left: 56px;
 }
 
 .popup>.btn {
