@@ -256,26 +256,15 @@ function removeAllChildNods(el) {
     }
 }
 
-    const container = document.querySelector('.map');
-
-    navigator.geolocation.watchPosition(function(result){
-        const options = {
-            center: new kakao.maps.LatLng(result.coords.latitude, result.coords.longitude),
-            level: 4
-        };
-
-        map = new kakao.maps.Map(container, options);
-    });
-
 const testDate=[
     {
         "name":"test1",
-        "mainText":"본문입니다2",
-        "score":4
+        "mainText":"본문입니다",
+        "score":1
     },
     {
-    "name":"test2",
-        "mainText":"본문입니다2",
+    "name":"test1",
+        "mainText":"본문입니다",
         "score":1
 
     }
