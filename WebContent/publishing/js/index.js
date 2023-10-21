@@ -87,6 +87,17 @@ $(function () {
         $(this).parents(".popup-wrap").hide();
     });
 
+
+    // 화장실 정보 등록하기 버튼 클릭시
+    $("#infoAddBtn").on("click", function(){
+        const data = $(".info-popup form").serializeArray();
+        ajax("toiletInfoServiceInsert", data, function(){
+            alert("등록되었습니다.");
+            refreshMarker();
+            $(".info-popup").hide();
+        })
+    });
+
      // "input2" 클릭 시 "info-popup popup-wrap"에서 텍스트 입력 가능하게
      $("footer .input2").on("click", function () {
         $(".info-popup").show();
@@ -121,6 +132,9 @@ $(function () {
         $(".info-popup .btn-wrap button").hide();
     });
 
+
+
+
     // 장소 검색
     $("#keyword").on("keydown", e => e.keyCode === 13 ? searchPlaces() : true);
     $("#searchBtn").on("click", e => searchPlaces());
@@ -131,6 +145,7 @@ $(function () {
         const lot = $(e.currentTarget).data("lot");
         map.setCenter(new kakao.maps.LatLng(lat, lot));
         map.setLevel(4);
+        $("#placesList").hide();
     });
 
     // 내위치 갱신
