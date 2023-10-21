@@ -1,7 +1,7 @@
-const ps = new kakao.maps.services.Places();
-let map;
+    const ps = new kakao.maps.services.Places();
+    let map;
 
-$(function () {
+    $(function () {
     // 동작(이벤트)을 실행하지 못하게 막는 메서드입니다.
     $("form").on("submit", (event) => {
         event.preventDefault();
@@ -105,8 +105,42 @@ $(function () {
         $("footer").hide();
         // 텍스트 입력 가능하도록 해제
         $(".info-popup input[type='text']").prop('readonly', false);
+
+        //리뷰에 컨텐츠에 컨텐츠박스를 생성하는 객체생성
+        var $div = $('<div class="cont-box"><div class= "conttx" id="result"></div><div class= "rvscor"><p id="jum"></p></div></div>');
     });
 
+    // "추가버튼" 클릭 이벤트로 콘텐츠 박스 추가
+    $(".cnrk").click(function () {
+        // 이름을 가져옵니다
+        const nameValue = $(".modal input[type='text']").val();
+
+        // 콘텐츠 박스를 생성하고 이름과 텍스트 값을 설정
+        const contentBox = $(
+            `<div class="cont-box">
+                <div class="conttx">${nameValue}: ${$("textarea").val()}</div>
+            </div>`
+        );
+
+        // 콘텐츠 박스를 '.contents' 요소에 추가합니다
+        $('.contents').append(contentBox);
+
+        // 리뷰창으로 돌아가기
+        $(".info-popup2").show();
+        $(".modal").hide();
+
+        // 리뷰작성창의 입력 필드를 비웁니다
+        $(".modal input[type='text']").val('');
+        $("textarea").val('');
+    });
+
+    // "리뷰쓰기" 버튼 클릭 이벤트
+    $(".btn-box1").on("click", function () {
+        // 리뷰작성창의 입력 필드를 초기화
+        $(".modal input[type='text']").val('');
+        $("textarea").val('');
+    });
+    
     // "button2" 클릭 시 "info-popup popup-wrap"에서 텍스트 읽기 전용으로
     $(".chang .button2").on("click", function(){
         $(".info-popup").show();
@@ -114,7 +148,7 @@ $(function () {
         // 텍스트 읽기 전용으로 설정
         $(".info-popup input[type='text']").prop('readonly', true);
     });
-
+    
     // "input2" 클릭 시 "info-popup popup-wrap"에서 텍스트 입력 가능하게
     $("footer .input2").on("click", function () {
         $(".info-popup").show();
@@ -131,7 +165,7 @@ $(function () {
         // "등록하기"와 "등록취소" 버튼 숨기게
         $(".info-popup .btn-wrap button").hide();
     });
-
+    
 
 
 
@@ -176,12 +210,12 @@ function ajax(url, data, sucsFunc, errFunc) {
             console.log(err, obj, msg);
         }
     })
-}
+    }
 
-// 맵 생성
+    // 맵 생성
 function createMap() {
 
-    const container = document.querySelector('.map');
+    const container = document.querySelector('.map'); //지도를 표시할 div
 
     navigator.geolocation.getCurrentPosition(function (result) {
         const options = {
@@ -191,6 +225,27 @@ function createMap() {
 
         map = new kakao.maps.Map(container, options);
     });
+
+    // 마커가 표시될 위치입니다
+    markerPosition  = new kakao.maps.LatLng(37.39277391544831, 126.92039682109709); 
+
+    
+    imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
+    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+    markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+    markerPosition = new kakao.maps.LatLng(37.39277391544831, 126.92039682109709); // 마커가 표시될 위치입니다
+
+
+    // 마커를 생성합니다
+    marker = new kakao.maps.Marker({
+        position: markerPosition,
+        image: markerImage 
+    });
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+
+    
 };
 
 
@@ -303,3 +358,17 @@ function removeAllChildNods(el) {
         el.removeChild(el.lastChild);
     }
 }
+
+const testDate=[
+    {
+        "name":"test1",
+        "mainText":"본문입니다",
+        "score":1
+    },
+    {
+    "name":"test1",
+        "mainText":"본문입니다",
+        "score":1
+
+    }
+]

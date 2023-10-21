@@ -369,6 +369,9 @@ footer .input2 img {
     border-radius: .6rem;
     text-align: left;
 }
+.contents .cont-box .box-top{
+    display: flex;
+}
 .btn{
     display: flex;
     margin-left: 60px;
@@ -439,11 +442,15 @@ footer .input2 img {
 
 .popup>input {
     display: flex;
-    width: 21rem;
-    margin-left: 30px;
-    height: 17rem;
+    width: 4rem;
+    margin-left: 170px;
+    height: 1rem;
     padding: 0 1rem;
-    margin-top: 40px;
+    margin-top: 2px;
+}
+.popup>textarea{
+    margin-top: 30px;
+    margin-left: 56px;
 }
 
 .popup>.btn {
@@ -474,7 +481,7 @@ footer .input2 img {
 
 .popup>p {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 
 }
 /* 별점 */
