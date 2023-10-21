@@ -164,6 +164,8 @@ function refreshMarker() {
     })
 }
 
+
+
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
 

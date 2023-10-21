@@ -306,6 +306,9 @@ footer .input2 {
     border-radius: .6rem;
     text-align: left;
 }
+.contents .cont-box .box-top{
+    display: flex;
+}
 .btn{
     display: flex;
     margin-left: 60px;
@@ -446,4 +449,7 @@ footer .input2 {
     background-color: #ffffff;
     border: 1px solid skyblue;
     border-radius: .6rem;
+}
+#searchResult{
+    display: none;
 }
