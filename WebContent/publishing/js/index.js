@@ -130,7 +130,14 @@ $(function () {
         const lat = $(e.currentTarget).data("lat");
         const lot = $(e.currentTarget).data("lot");
         map.setCenter(new kakao.maps.LatLng(lat, lot));
-        map.setLevel(3);
+        map.setLevel(4);
+    });
+
+    // 내위치 갱신
+    $(".sub2").on("click", function(){
+        navigator.geolocation.getCurrentPosition(function (result) {
+            map.setCenter(new kakao.maps.LatLng(result.coords.latitude, result.coords.longitude));
+        });
     });
 
 
@@ -161,7 +168,7 @@ function createMap() {
 
     const container = document.querySelector('.map');
 
-    navigator.geolocation.watchPosition(function (result) {
+    navigator.geolocation.getCurrentPosition(function (result) {
         const options = {
             center: new kakao.maps.LatLng(result.coords.latitude, result.coords.longitude),
             level: 4
