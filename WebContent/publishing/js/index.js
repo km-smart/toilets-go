@@ -91,9 +91,139 @@
 
     refreshMarker();
 
+
+     //리뷰에 컨텐츠에 컨텐츠박스를 생성하는 객체생성
+     var $div = $('<div class="cont-box"><div class= "conttx" id="result"></div><div class= "rvscor"><p id="jum"></p></div></div>');
+
+     //추가버튼 클릭 시 컨텐츠박스 생성
+   
+
     });
 
-    function ajax(url, data, sucsFunc, errFunc) {
+    $(function () {
+        // ...
+    
+        // "추가버튼" 클릭 이벤트로 콘텐츠 박스 추가
+        $(".cnrk").click(function () {
+            // 이름을 가져옵니다
+            const nameValue = $(".modal input[type='text']").val();
+    
+            // 콘텐츠 박스를 생성하고 이름과 텍스트 값을 설정
+            const contentBox = $(
+                `<div class="cont-box">
+                    <div class="conttx">${nameValue}: ${$("textarea").val()}</div>
+                </div>`
+            );
+    
+            // 콘텐츠 박스를 '.contents' 요소에 추가합니다
+            $('.contents').append(contentBox);
+    
+            // 리뷰창으로 돌아가기
+            $(".info-popup2").show();
+            $(".modal").hide();
+    
+            // 리뷰작성창의 입력 필드를 비웁니다
+            $(".modal input[type='text']").val('');
+            $("textarea").val('');
+        });
+    
+        // ...
+    
+        // "리뷰쓰기" 버튼 클릭 이벤트
+        $(".btn-box1").on("click", function () {
+            // 리뷰작성창의 입력 필드를 초기화
+            $(".modal input[type='text']").val('');
+            $("textarea").val('');
+        });
+    
+        // ...
+    });
+    
+    
+    
+    
+    
+    
+
+    $(function () {
+        // ...
+    
+        // "input2" 클릭 시 "info-popup popup-wrap"에서 텍스트 입력 가능하게
+        $("footer .input2").on("click", function () {
+            $(".info-popup").show();
+            $("header").hide();
+            $("footer").hide();
+            // 텍스트 입력 가능하도록 해제
+            $(".info-popup input[type='text']").prop('readonly', false);
+            $(".info-popup input[type='number']").prop('readonly', false);
+        });
+    
+        // "button2" 클릭 시 "info-popup popup-wrap"에서 텍스트 읽기 전용으로
+        $(".chang .button2").on("click", function(){
+            $(".info-popup").show();
+            $(".chang").hide();
+            // 텍스트 읽기 전용으로 설정
+            $(".info-popup input[type='text']").prop('readonly', true);
+            $(".info-popup input[type='number']").prop('readonly', true);
+        });
+    
+        // ...
+    });
+    
+    $(function () {
+        // ...
+    
+        // "변기개수" input 요소를 선택합니다.
+        const toiletCountInput = $("#test3");
+    
+        // input 요소에 이벤트 리스너를 추가하여 숫자만 입력되도록 합니다.
+        toiletCountInput.on("input", function () {
+            // 현재 입력 값을 가져옵니다.
+            const inputValue = toiletCountInput.val();
+    
+            // 정규 표현식을 사용하여 숫자만 입력되도록 제한합니다.
+            const sanitizedValue = inputValue.replace(/\D/g, "");
+    
+            // 변경된 값을 다시 input 요소에 설정합니다.
+            toiletCountInput.val(sanitizedValue);
+        });
+    
+        // ...
+    });
+    
+    $(function () {
+        // ...
+    
+        // "input2" 클릭 시 "info-popup popup-wrap"에서 텍스트 입력 가능하게
+        $("footer .input2").on("click", function () {
+            $(".info-popup").show();
+            $("header").hide();
+            $("footer").hide();
+            // "등록하기"와 "등록취소" 버튼 나타나게
+            $(".info-popup .btn-wrap button").show();
+        });
+    
+        // "button2" 클릭 시 "chang popup-wrap"에서 텍스트 읽기 전용으로
+        $(".chang .button2").on("click", function(){
+            $(".info-popup").show();
+            $(".chang").hide();
+            // "등록하기"와 "등록취소" 버튼 숨기게
+            $(".info-popup .btn-wrap button").hide();
+        });
+    
+        // ...
+    });
+    
+    // "button2" 클릭 시 "chang popup-wrap"에서 텍스트 읽기 전용으로
+    $(".chang .button2").on("click", function(){
+        $(".info-popup").show();
+        $(".chang").hide();
+        // 라디오 버튼을 읽기 전용으로 설정
+        $(".info-popup input[type='radio']").prop('disabled', true);
+    });
+
+
+function ajax(url, data, sucsFunc, errFunc){
     $.ajax({
         method: "GET",
         url: `/${url}.jsp`,
@@ -319,3 +449,17 @@ function removeAllChildNods(el) {
         el.removeChild(el.lastChild);
     }
 }
+
+const testDate=[
+    {
+        "name":"test1",
+        "mainText":"본문입니다",
+        "score":1
+    },
+    {
+    "name":"test1",
+        "mainText":"본문입니다",
+        "score":1
+
+    }
+]
