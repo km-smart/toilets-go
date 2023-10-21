@@ -140,7 +140,7 @@ function ajax(url, data, sucsFunc, errFunc) {
             if (sucsFunc) sucsFunc(result);
             console.log(result);
         }, error: (err, obj, msg) => {
-            if (sucsFunc) errFunc(err, obj, msg);
+            if (errFunc) errFunc(err, obj, msg);
             console.log(err, obj, msg);
         }
     })
