@@ -89,6 +89,84 @@ $(function(){
     createMap();
 });
 
+$(function () {
+    // ...
+
+    // "input2" 클릭 시 "info-popup popup-wrap"에서 텍스트 입력 가능하게
+    $("footer .input2").on("click", function () {
+        $(".info-popup").show();
+        $("header").hide();
+        $("footer").hide();
+        // 텍스트 입력 가능하도록 해제
+        $(".info-popup input[type='text']").prop('readonly', false);
+        $(".info-popup input[type='number']").prop('readonly', false);
+    });
+
+    // "button2" 클릭 시 "info-popup popup-wrap"에서 텍스트 읽기 전용으로
+    $(".chang .button2").on("click", function(){
+        $(".info-popup").show();
+        $(".chang").hide();
+        // 텍스트 읽기 전용으로 설정
+        $(".info-popup input[type='text']").prop('readonly', true);
+        $(".info-popup input[type='number']").prop('readonly', true);
+    });
+
+    // ...
+});
+
+$(function () {
+    // ...
+
+    // "변기개수" input 요소를 선택합니다.
+    const toiletCountInput = $("#test3");
+
+    // input 요소에 이벤트 리스너를 추가하여 숫자만 입력되도록 합니다.
+    toiletCountInput.on("input", function () {
+        // 현재 입력 값을 가져옵니다.
+        const inputValue = toiletCountInput.val();
+        
+        // 정규 표현식을 사용하여 숫자만 입력되도록 제한합니다.
+        const sanitizedValue = inputValue.replace(/\D/g, "");
+
+        // 변경된 값을 다시 input 요소에 설정합니다.
+        toiletCountInput.val(sanitizedValue);
+    });
+
+    // ...
+});
+
+$(function () {
+    // ...
+
+    // "input2" 클릭 시 "info-popup popup-wrap"에서 텍스트 입력 가능하게
+    $("footer .input2").on("click", function () {
+        $(".info-popup").show();
+        $("header").hide();
+        $("footer").hide();
+        // "등록하기"와 "등록취소" 버튼 나타나게
+        $(".info-popup .btn-wrap button").show();
+    });
+
+    // "button2" 클릭 시 "chang popup-wrap"에서 텍스트 읽기 전용으로
+    $(".chang .button2").on("click", function(){
+        $(".info-popup").show();
+        $(".chang").hide();
+        // "등록하기"와 "등록취소" 버튼 숨기게
+        $(".info-popup .btn-wrap button").hide();
+    });
+
+    // ...
+});
+
+// "button2" 클릭 시 "chang popup-wrap"에서 텍스트 읽기 전용으로
+$(".chang .button2").on("click", function(){
+    $(".info-popup").show();
+    $(".chang").hide();
+    // 라디오 버튼을 읽기 전용으로 설정
+    $(".info-popup input[type='radio']").prop('disabled', true);
+});
+
+
 function ajax(url, data, sucsFunc, errFunc){
     $.ajax({
         method: "GET",
@@ -256,16 +334,36 @@ function removeAllChildNods(el) {
     }
 }
 
-const testDate=[
+// 샘플 리뷰 데이터
+const reviewData = [
     {
-        "name":"test1",
-        "mainText":"본문입니다",
-        "score":1
+        name: "용민",
+        score: 4,
+        mainText: "내용 1"
     },
     {
-    "name":"test1",
-        "mainText":"본문입니다",
-        "score":1
-
+        name: "테스트",
+        score: 5,
+        mainText: "내용 2"
     }
-]
+    // 필요한 만큼 더 많은 리뷰 데이터 객체를 추가할 수 있습니다
+];
+
+// 리뷰 컨테이너 요소 가져오기
+const reviewContainer = document.querySelector(".info-popup2 .contents");
+
+// 리뷰 데이터를 반복하면서 각 리뷰를 위한 <div>를 생성합니다.
+reviewData.forEach((review, index) => {
+    const reviewDiv = document.createElement("div");
+    reviewDiv.classList.add("cont-box");
+
+    reviewDiv.innerHTML = `
+        <div class="box-top">
+            <div class="name">${review.name}</div>
+            <div class="score">별점: ${review.score}</div>
+        </div>
+        <div class="mainText">${review.mainText}</div>
+    `;
+
+    reviewContainer.appendChild(reviewDiv);
+});
