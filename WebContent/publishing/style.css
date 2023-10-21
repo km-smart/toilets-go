@@ -362,10 +362,16 @@ footer .input2 {
     text-align: center;
     margin-top: 30px;
 }
-.popup>p {
+.popup>.input-box1 {
     text-align: center;
     margin-top: 10px;
+    
 
+}
+.popup>.input-box1>input{
+    width: 40vw;
+    height: 20vh;
+    margin-top: 10px;
 }
 
 .popup>input {
