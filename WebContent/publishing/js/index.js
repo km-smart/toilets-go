@@ -6,43 +6,87 @@ const markerClickImage = new kakao.maps.MarkerImage(imageSrc, new kakao.maps.Siz
 
 
 $(function () {
-    // 동작(이벤트)을 실행하지 못하게 막는 메서드입니다.
-    $("form").on("submit", (event) => {
-        event.preventDefault();
+    // 동작(이벤트)을 실행하지 못하게 막는 메서드
+    $("form").on("submit", e => e.preventDefault());
 
-        console.log(event.target);
-    });
+    ////////////// 기본 이벤트 리스너
 
-    // 기본 이벤트 리스너
-    
-    // 화장실 정보 등록
-    $("footer .input2").on("click", function () {
-        $("#detailPopup").css("display", "flex");
-    })
     // 리뷰 확인
     $("#reviewBtn").on("click", function () {
+        const tData = $(".chang").data("toiletInfo");
+        refreshReview(tData.toiletIdx);
         $("#reviewPopup").css("display", "flex");
     });
+
+    // 리뷰 새로고침
+    $("#reviewRefresh").on("click", function () {
+        const tData = $(".chang").data("toiletInfo");
+        refreshReview(tData.toiletIdx);
+    });
+
     // 리뷰 작성
     $("#reviewWriteBtn").on("click", function () {
         $("#reviewWritePopup").css("display", "flex");
+    });
+
+    // 리뷰 작성시 별점 클릭 이벤트
+    $("#reviewWritePopup .star-rating span").on("click", function (e) {
+        const eIdx = $(this).index() + 1;
+
+        $(`#reviewWritePopup .star-rating span`).removeClass("on");
+        $(`#reviewWritePopup .star-rating span:nth-child(-n+${eIdx})`).addClass("on");
     })
+
     // 리뷰 등록하기
     $("#reviewAddBtn").on("click", function () {
-        const data = $("#detailPopup form").serializeArray();
-        ajax("toiletInfoServiceInsert", data, function () {
+        const data = $("#reviewWritePopup form").serializeArray();
+        data.score = $("#reviewWritePopup .star-rating span.on").length; // 별점
+
+        const tData = $(".chang").data("toiletInfo");
+        data.toiletIdx = tData.toiletIdx; // 화장실 idx
+
+        ajax("reviewInsert", data, function () {
             alert("등록되었습니다.");
-            refreshMarker();
-            $("#detailPopup").hide();
+            refreshReview();
+            $("#reviewWritePopup").hide();
         })
     })
 
-    // 
-    $(".popup>.btn1>button").on("click", function () {
-        $(".modal").hide();
-        $("#reviewPopup").css("display", "flex");
+
+
+    // 화장실 정보 확인
+    $(".chang #detailBtn").on("click", function () {
+        // 텍스트 읽기 전용으로 설정
+        $("#detailPopup input, #detailPopup textarea").prop('readonly', true);
+        $("#detailPopup input[type=radio]").attr('onclick', "return false").prop("checked", false);
+        
+        // "등록하기" 버튼 숨기게
+        $("#detailPopup .btn-wrap").hide();
+
+        // 데이터 세팅
+        const tData = $(".chang").data("toiletInfo");
+        const $detailPopup = $("#detailPopup");
+        tData.foreach((key, value) => {
+            const $input = $detailPopup.find(`[name=${key}]`);
+            const type = $input.attr("type");
+            if (type === "text" || type === "textarea") {
+                $input.val(value);
+            } else { // radio일 때
+                $detailPopup.find(`[name=${key}][value=${value}]`).prop("checked", true);
+            }
+        });
+
+        $("#detailPopup").css("display", "flex");
     });
 
+    // 화장실 정보 작성
+    $("#infoAddPopupBtn").on("click", function () {
+        // 리뷰작성창의 입력 필드를 초기화
+        $("#detailPopup input, #detailPopup textarea").val('');
+        $("#detailPopup input[type=radio]").prop('checked', false);
+        // "등록하기" 버튼 나타나게
+        $("#detailPopup, #detailPopup .btn-wrap").css("display", "flex");
+    });
 
     // 화장실 정보 등록하기
     $("#detailInfoAddBtn").on("click", function () {
@@ -54,32 +98,12 @@ $(function () {
         })
     });
 
-    // "화장실 등록하기" 버튼 클릭 이벤트
-    $("#infoAddBtn").on("click", function () {
-        // 리뷰작성창의 입력 필드를 초기화
-        $("#detailPopup input, #detailPopup textarea").val('');
-        $("#detailPopup input[type=radio]").prop('checked', false);
-        // "등록하기" 버튼 나타나게
-        $("#detailPopup .btn-wrap").css("display", "flex");
-    });
-
-    // "#detailBtn" 클릭 시 "info-popup popup-wrap"에서 텍스트 읽기 전용으로
-    $(".chang #detailBtn").on("click", function () {
-        // 텍스트 읽기 전용으로 설정
-        $("#detailPopup input, #detailPopup textarea").prop('readonly', true);
-        $("#detailPopup input[type=radio]").attr('onclick', "return false");
-        // "등록하기" 버튼 숨기게
-        $("#detailPopup .btn-wrap").hide();
-
-        $("#detailPopup").css("display", "flex");
-    });
-
 
     $(".cancel").on("click", function (e) {
         $(this).parents(".popup-wrap").hide();
 
         // 상세보기 창에서 닫기를 누르면 선택한 마커 해제
-        if($(this).parents(".chang").length > 0){
+        if ($(this).parents(".chang").length > 0) {
             selectedMarker.setImage(markerImage);
             selectedMarker = null;
         }
@@ -141,47 +165,9 @@ function createMap() {
     });
 };
 
-// 서버 안키고 개발시 임시 테이터!
-var result = [
-    {
-        idx: 1,
-        lot: 33.450705,
-        lat: 126.570677
-    },
-    {
-        idx: 2,
-        lot: 33.450936,
-        lat: 126.569477
-    },
-    {
-        idx: 3,
-        lot: 33.450879,
-        lat: 126.569940
-    },
-    {
-        idx: 4,
-        lot: 33.451393,
-        lat: 126.570738
-    }
-];
-
 // 마커 새로고침
 function refreshMarker() {
-    ajax("mapMarkerList", {}, function (result1) {
-        const imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png';
-        const imageSize = new kakao.maps.Size(24, 35);
-        const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-
-        for (item of result) {
-            // 마커를 생성합니다
-            new kakao.maps.Marker({
-                map: map, // 마커를 표시할 지도
-                position: new kakao.maps.LatLng(item.lot, item.lat), // 마커를 표시할 위치
-                title: item.idx, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                image: markerImage // 마커 이미지 
-            });
-        }
-    }, function () {
+    ajax("mapMarkerList", {}, function (result) {
         for (item of result) {
             // 마커를 생성합니다
             const marker = new kakao.maps.Marker({
@@ -208,21 +194,48 @@ function refreshMarker() {
                 // 클릭된 마커를 현재 클릭된 마커 객체로 설정합니다
                 selectedMarker = marker;
             });
-
-            map.setCenter(new kakao.maps.LatLng(item.lot, item.lat));
         }
     })
+}
+
+// 리뷰 새로고침
+function refreshReview(idx) {
+    const $contentsWrap = $("#reviewPopup .contents");
+
+    // 생성 전 초기화
+    $contentsWrap.empty();
+
+    ajax("reviewList", { toiletIdx: idx }, function (result) {
+        for (item of result) {
+            const $newNode = $(
+                `<div class="cont-box blue-outline-box blue-outline-box">
+              <div class="box-top">
+                <div class="name">${name}</div>
+                <!-- 별점 -->
+                <div class="star-rating">
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                  <span>★</span>
+                </div>
+                <div class="insert-dt">${insertDt}</div>
+              </div>
+              <div class="main-text">${mainText}</div>
+            </div>`);
+
+            $newNode.find(`.star-rating span:nth-child(-n+${eIdx})`).addClass("on");
+            $contentsWrap.append($newNode);
+        }
+    });
 }
 
 function createToiletInfo(idx) {
     ajax("toiletDetail", { idx: idx }, function (result) {
         $(".chang").css("display", "flex");
-        $(".chang .title").text(result.restroomName);
+        $(".chang .title").html(`${result.restroomName}<span>${result.scoreAvg}/5</span>`);
         $(".chang .cont").text(result.cleanliness);
-    }, function (result) {
-        $(".chang").css("display", "flex");
-        $(".chang .title").text("화장실 이름");
-        $(".chang .cont").text("내용");
+        $(".chang").data("toiletInfo", result);
     });
 }
 

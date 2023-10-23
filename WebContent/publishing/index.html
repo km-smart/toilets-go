@@ -27,12 +27,12 @@
   </header>
   <footer>
     <div class="sub2"><img src="img/location.png" alt=""></div>
-    <div class="input2" id="infoAddBtn"><img src="img/plus.png" alt="추가 버튼 아이콘">화장실 추가 등록</div>
+    <div class="input2" id="infoAddPopupBtn"><img src="img/plus.png" alt="추가 버튼 아이콘">화장실 추가 등록</div>
   </footer>
   <!-- 정보창 -->
   <div class="chang popup-wrap">
     <div class="left">
-      <div class="title blue-outline-box">아무튼 화장실이름</div>
+      <div class="title blue-outline-box">아무튼 화장실이름 <span>scoreAvg/5</span></div>
       <div class="cont blue-outline-box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure commodi
         illo porro ullam recusandae, consequuntur ab magnam amet consequatur distinctio architecto nulla itaque odio rem
         quis dolorem? Molestiae, ut?</div>
@@ -52,15 +52,7 @@
       <h4>화장실 리뷰</h4>
       <button class="cancel"><img class="close-icon" src="img/close.png"></button>
     </div>
-    <div class="contents">
-      <div class="cont-box blue-outline-box blue-outline-box">
-        <div class="box-top">
-          <div class="name">용민</div>
-          <div class="score">별점</div>
-        </div>
-        <div class="mainText">내용</div>
-      </div>
-    </div>
+    <div class="contents"></div>
     <div class="btn">
       <button id="reviewWriteBtn">리뷰쓰기<img src="img/write.png" alt=""></button>
       <button id="reviewRefresh">새로고침<img src="img/refresh.png" alt=""></button>
@@ -77,15 +69,15 @@
       <p>화장실을 사용하고 느낀 점을 작성해주세요</p>
       <form>
         <input type="text" name="name" placeholder="이름">
-        <textarea name="content" rows="15" maxlength="200" placeholder="200자 이내로 자유롭게 작성해주세요."></textarea>
+        <textarea name="mainText" rows="15" maxlength="200" placeholder="200자 이내로 자유롭게 작성해주세요."></textarea>
 
         <!-- 별점 -->
         <div class="star-rating">
-          <span class="star" data-rating="1">☆</span>
-          <span class="star" data-rating="2">☆</span>
-          <span class="star" data-rating="3">☆</span>
-          <span class="star" data-rating="4">☆</span>
-          <span class="star" data-rating="5">☆</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
+          <span>★</span>
         </div>
       </form>
 

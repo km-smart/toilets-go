@@ -11,7 +11,6 @@
 	String name = request.getParameter("name");
 	String score = request.getParameter("score");
 	String mainText = request.getParameter("mainText");
-	String userIp = request.getParameter("userIp");
     
     // 3. 데이터베이스 연결
 	JDBConnect jdbCommect = new JDBConnect();
@@ -37,11 +36,11 @@
         		+ ")"; // ? 부분이 동적 파라미터입니다.
 
         jdbCommect.psmt = jdbCommect.con.prepareStatement(sql);
-        jdbCommect.psmt.setString(1, toiletIdx); // 파라미터 매핑
-        jdbCommect.psmt.setString(2, name); // 파라미터 매핑
-        jdbCommect.psmt.setString(3, score); // 파라미터 매핑
-        jdbCommect.psmt.setString(4, mainText); // 파라미터 매핑
-        jdbCommect.psmt.setString(5, userIp); // 파라미터 매핑
+        jdbCommect.psmt.setString(1, toiletIdx);
+        jdbCommect.psmt.setString(2, name);
+        jdbCommect.psmt.setString(3, score);
+        jdbCommect.psmt.setString(4, mainText);
+        jdbCommect.psmt.setString(5, request.getRemoteAddr());
 
         jdbCommect.psmt.execute();
         
@@ -58,7 +57,7 @@
        		+ "	WHERE IDX = ?"; // ? 부분이 동적 파라미터입니다.
 
         jdbCommect.psmt = jdbCommect.con.prepareStatement(updtSql);
-        jdbCommect.psmt.setString(1, toiletIdx); // 파라미터 매핑
+        jdbCommect.psmt.setString(1, toiletIdx);
 
         jdbCommect.psmt.execute();
 

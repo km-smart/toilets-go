@@ -180,6 +180,10 @@ footer .input2 img {
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
+.chang> .left> .title> span {
+    font-weight: 300;
+    font-size: 1rem;
+}
 .chang> .left> .cont {
     flex: 1;
     overflow: hidden;
@@ -353,7 +357,6 @@ footer .input2 img {
 }
 
 /* 리뷰창 */
-
 #reviewPopup {
     position: fixed;
     z-index: 9999;
@@ -375,7 +378,6 @@ footer .input2 img {
     font-size: 2rem;
     display: flex;
     justify-content: space-between;
-    flex: 1;
 }
 
 .info-header> button {
@@ -402,10 +404,15 @@ footer .input2 img {
 
 .contents .cont-box .box-top {
     display: flex;
+    gap: 1rem;
+}
+
+.contents .cont-box .box-top .insert-dt{
+    font-size: 0.8rem;
+    color: #aaa;
 }
 
 .btn {
-    flex: 1;
     display: flex;
     justify-content: center;
     gap: 3rem;
@@ -459,6 +466,10 @@ footer .input2 img {
 .star-rating {
     text-align: center;
     font-size: 1.5rem;
+    color: #aaa;
+}
+.star-rating> span.on {
+    color: rgb(241, 205, 43);
 }
 
 

@@ -20,7 +20,6 @@
 	String bidetYn = request.getParameter("bidetYn");
 	String cleanliness = request.getParameter("cleanliness");
 	String facility = request.getParameter("facility");
-	String userIp = request.getParameter("userIp");
 	
 
 	 // 2. 동적 SQL 생성
@@ -67,7 +66,7 @@
     jdbCommect.psmt.setString(8, bidetYn);
     jdbCommect.psmt.setString(9, cleanliness);
     jdbCommect.psmt.setString(10, facility);
-    jdbCommect.psmt.setString(11, userIp);// 파라미터 매핑
+    jdbCommect.psmt.setString(11, request.getRemoteAddr());
 
 
     jdbCommect.psmt.executeQuery();
