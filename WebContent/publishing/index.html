@@ -27,218 +27,80 @@
   </header>
   <footer>
     <div class="sub2"><img src="img/location.png" alt=""></div>
-    <div class="input2"><img src="img/plus.png" alt="추가 버튼 아이콘">화장실 추가 등록</div>
+    <div class="input2" id="infoAddBtn"><img src="img/plus.png" alt="추가 버튼 아이콘">화장실 추가 등록</div>
   </footer>
   <!-- 정보창 -->
   <div class="chang popup-wrap">
     <div class="left">
-      <div class="title">아무튼 화장실이름</div>
-      <div class="cont">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quos cupiditate alias voluptas sint eos provident delectus, explicabo voluptate assumenda libero quae odit. Quos, dolorem inventore minus veniam sit itaque!</div>
+      <div class="title blue-outline-box">아무튼 화장실이름</div>
+      <div class="cont blue-outline-box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam iure commodi
+        illo porro ullam recusandae, consequuntur ab magnam amet consequatur distinctio architecto nulla itaque odio rem
+        quis dolorem? Molestiae, ut?</div>
     </div>
     <div class="right">
-      <div class="top cancel">X</div>
+      <div class="top cancel"><img class="close-icon" src="img/close.png"></div>
       <div class="bottom">
-        <div class="button1"><h5>리뷰</h5></div>
-        <div class="button2"><h5>상세</h5></div>
+        <div id="reviewBtn" class="blue-outline-box">리뷰</div>
+        <div id="detailBtn" class="blue-outline-box">상세</div>
       </div>
     </div>
   </div>
 
   <!-- 리뷰창 -->
-  <div class="info-popup2 popup-wrap">
-    <div class="info-header">                    
-      <h4>화장실 리뷰 게시판</h4>
-      <button>새로고침</button>
+  <div id="reviewPopup" class="popup-wrap blue-outline-box">
+    <div class="info-header">
+      <h4>화장실 리뷰</h4>
+      <button class="cancel"><img class="close-icon" src="img/close.png"></button>
     </div>
     <div class="contents">
-      <div class="cont-box">
+      <div class="cont-box blue-outline-box blue-outline-box">
         <div class="box-top">
           <div class="name">용민</div>
           <div class="score">별점</div>
         </div>
         <div class="mainText">내용</div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-       </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-       </div>
-       
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-       </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
       </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
-
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-       </div>
-       
-      <div class="cont-box">
-        <div class="box-top">
-          <div class="name"></div>
-          <div class="score"></div>
-        </div>
-        <div class="mainText"></div>
-        </div>
     </div>
     <div class="btn">
-      <div class="btn-box1">
-        리뷰쓰기
-      </div>
-      <div class="btn-box2">
-        뒤로가기
-      </div>
+      <button id="reviewWriteBtn">리뷰쓰기<img src="img/write.png" alt=""></button>
+      <button id="reviewRefresh">새로고침<img src="img/refresh.png" alt=""></button>
     </div>
   </div>
+
   <!-- 리뷰작성창 -->
-  <div class="modal popup-wrap">
-    <div class="popup">
-      <h1>화장실 리뷰 작성하기</h1>
-      <p>화장실을 사용하고 느낌점을 작성해주세요</p>
-      <P>이름 </P>
-      <input type="text">
-      <textarea name="" id="" cols="45" rows="15"></textarea>
-      <div class="btn1">
-        <button class="cancel">취소</button>
+  <div id="reviewWritePopup" class="modal popup-wrap">
+    <div class="popup blue-outline-box">
+      <div class="title">
+        <h1>화장실 리뷰 작성하기</h1>
+        <div class="cancel"><img class="close-icon" src="img/close.png"></div>
       </div>
-      <div class="btn2">
-        <button class="cnrk">추가하기</button>
-      </div>
-      <p>화장실을 사용하고 느낌점을 작성해주세요</p>
+      <p>화장실을 사용하고 느낀 점을 작성해주세요</p>
+      <form>
+        <input type="text" name="name" placeholder="이름">
+        <textarea name="content" rows="15" maxlength="200" placeholder="200자 이내로 자유롭게 작성해주세요."></textarea>
 
-      <!-- 별점 -->
-      <div class="star-rating">
-        <span class="star" data-rating="1">☆</span>
-        <span class="star" data-rating="2">☆</span>
-        <span class="star" data-rating="3">☆</span>
-        <span class="star" data-rating="4">☆</span>
-        <span class="star" data-rating="5">☆</span>
-      </div>
+        <!-- 별점 -->
+        <div class="star-rating">
+          <span class="star" data-rating="1">☆</span>
+          <span class="star" data-rating="2">☆</span>
+          <span class="star" data-rating="3">☆</span>
+          <span class="star" data-rating="4">☆</span>
+          <span class="star" data-rating="5">☆</span>
+        </div>
+      </form>
 
-
+      <button id="reviewAddBtn">등록하기<img src="img/submit.png"></button>
     </div>
   </div>
+
   <!-- 등록창 -->
-  <div class="info-popup popup-wrap">
+  <div id="detailPopup" class="popup-wrap blue-outline-box">
     <form>
+      <div class="title">
+        <h1>화장실 등록</h1>
+        <div class="cancel"><img class="close-icon" src="img/close.png"></div>
+      </div>
       <div class="top">
-        <div class="close-btn">
-          <h3>X</h3>
-        </div>
         <!--카카오 주소 검색으로 나오는 애-->
         <div class="input-box">
           <span>주소</span>
@@ -247,69 +109,69 @@
         <div class="input-box">
           <!--사용자가 입력하는 애-->
           <span>상세 주소</span>
-          <input type="text" name="detailedAddress"/>
+          <input type="text" name="detailedAddress" />
         </div>
 
         <div class="input-wrap">
           <div class="input-box" style="grid-column: 1/7">
             <span>화장실 별칭</span>
-            <input type="text" name="restroomName"/>
+            <input type="text" name="restroomName" />
           </div>
 
           <div class="input-box" style="grid-column: 7/13">
             <span>변기 개수</span>
-            <input type="number" name="toiletCnt"/>
+            <input type="number" name="toiletCnt" />
           </div>
 
           <div class="input-box">
             <span>성별 구분</span>
             <div>
-              <input type="radio" name="genderYn" value="0">
+              <input type="radio" name="genderYn" value="0" id="male">
               <label for="male">남</label>
-              <input type="radio" name="genderYn" value="1">
+              <input type="radio" name="genderYn" value="1" id="female">
               <label for="female">여</label>
-              <input type="radio" name="genderYn" value="2">
-              <label for="female">남녀공용</label>
+              <input type="radio" name="genderYn" value="2" id="mixed">
+              <label for="mixed">남녀공용</label>
             </div>
           </div>
 
           <div class="input-box">
             <span>잠금유무 </span>
             <div>
-              <input type="radio" name="lockYn" value="Y">
-              <label for="Y">O</label>
-              <input type="radio" name="lockYn" value="N">
-              <label for="N">X</label>
+              <input type="radio" name="lockYn" value="Y" id="lockY">
+              <label for="lockY">O</label>
+              <input type="radio" name="lockYn" value="N" id="lockN">
+              <label for="lockN">X</label>
             </div>
           </div>
 
           <div class="input-box">
             <span>비데</span>
             <div>
-              <input type="radio" name="bidetYn" value="Y">
-              <label for="Y">O</label>
-              <input type="radio" name="bidetYn" value="N">
-              <label for="N">X</label>
+              <input type="radio" name="bidetYn" value="Y" id="bidetY">
+              <label for="bidetY">O</label>
+              <input type="radio" name="bidetYn" value="N" id="bidetN">
+              <label for="bidetN">X</label>
             </div>
           </div>
 
           <div class="input-box">
             <span>티슈</span>
             <div>
-              <input type="radio" name="tissueYn" value="Y">
-              <label for="Y">O</label>
-              <input type="radio" name="tissueYn" value="N">
-              <label for="N">X</label>
+              <input type="radio" name="tissueYn" value="Y" id="tissueY">
+              <label for="tissueY">O</label>
+              <input type="radio" name="tissueYn" value="N" id="tissueN">
+              <label for="tissueN">X</label>
             </div>
           </div>
 
           <div class="input-box">
             <span>비누</span>
             <div>
-              <input type="radio" name="soapYn" value="Y">
-              <label for="Y">O</label>
-              <input type="radio" name="soapYn" value="N">
-              <label for="N">X</label>
+              <input type="radio" name="soapYn" value="Y" id="soapY">
+              <label for="soapY">O</label>
+              <input type="radio" name="soapYn" value="N" id="soapN">
+              <label for="soapN">X</label>
             </div>
           </div>
         </div>
@@ -318,7 +180,7 @@
           <span>청결도</span>
           <textarea name="cleanliness" id="" cols="30" rows="10"></textarea>
         </div>
-        
+
         <div class="input-box">
           <span>시설 상태</span>
           <textarea name="facility" id="" cols="30" rows="10"></textarea>
@@ -326,11 +188,11 @@
       </div>
 
       <div class="btn-wrap">
-        <button id="infoAddBtn">등록하기</button>
-        <button class="cancel">등록취소</button>
+        <button id="detailInfoAddBtn">등록하기<img src="img/submit.png"></button>
       </div>
     </form>
   </div>
+
   <a id="flaticon" href="https://www.flaticon.com/kr/search?author_id=797&style_id=1281&type=standard" title="아이콘">아이콘 제작자: srip - Flaticon</a>
 </body>
 
