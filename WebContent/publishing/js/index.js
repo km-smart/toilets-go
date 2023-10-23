@@ -39,7 +39,7 @@ $(function () {
 
     // 리뷰 등록하기
     $("#reviewAddBtn").on("click", function () {
-        const data = $("#reviewWritePopup form").serializeArray();
+        const data = $("#reviewWritePopup form").serializeObject();
         data.score = $("#reviewWritePopup .star-rating span.on").length; // 별점
 
         const tData = $(".chang").data("toiletInfo");
@@ -47,7 +47,7 @@ $(function () {
 
         ajax("reviewInsert", data, function () {
             alert("등록되었습니다.");
-            refreshReview();
+            refreshReview(data.toiletIdx);
             $("#reviewWritePopup").hide();
         })
     })
@@ -92,7 +92,7 @@ $(function () {
 
     // 화장실 정보 등록하기
     $("#detailInfoAddBtn").on("click", function () {
-        const data = $("#detailPopup form").serializeArray();
+        const data = $("#detailPopup form").serializeObject();
         ajax("toiletInfoServiceInsert", data, function () {
             alert("등록되었습니다.");
             refreshMarker();
@@ -212,7 +212,7 @@ function refreshReview(idx) {
             const $newNode = $(
                 `<div class="cont-box blue-outline-box blue-outline-box">
               <div class="box-top">
-                <div class="name">${name}</div>
+                <div class="name">${item.name}</div>
                 <!-- 별점 -->
                 <div class="star-rating">
                   <span>★</span>
@@ -221,12 +221,12 @@ function refreshReview(idx) {
                   <span>★</span>
                   <span>★</span>
                 </div>
-                <div class="insert-dt">${insertDt}</div>
+                <div class="insert-dt">${item.insertDt}</div>
               </div>
-              <div class="main-text">${mainText}</div>
+              <div class="main-text">${item.mainText}</div>
             </div>`);
 
-            $newNode.find(`.star-rating span:nth-child(-n+${eIdx})`).addClass("on");
+            $newNode.find(`.star-rating span:nth-child(-n+${item.score})`).addClass("on");
             $contentsWrap.append($newNode);
         }
     });
@@ -346,16 +346,22 @@ function removeAllChildNods(el) {
     }
 }
 
-const testDate = [
-    {
-        "name": "test1",
-        "mainText": "본문입니다",
-        "score": 1
-    },
-    {
-        "name": "test1",
-        "mainText": "본문입니다",
-        "score": 1
 
+jQuery.fn.serializeObject = function () {
+    var obj = null;
+    try {
+        if (this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+            var arr = this.serializeArray();
+            if (arr) {
+                obj = {};
+                jQuery.each(arr, function () {
+                    obj[this.name] = this.value;
+                });
+            }
+        }
+    } catch (e) {
+        alert(e.message);
+    } finally {
     }
-]
+    return obj;
+};

@@ -13,6 +13,7 @@
 	String detailedAddress = request.getParameter("detailedAddress");
 	String longitude = request.getParameter("longitude");
 	String latitude = request.getParameter("latitude");
+	
 	// http://localhost:8080/toiletInfo.jsp?restroomName=태인이&address=근명&detailedAddress=고등학교&longitude=123.1234&latitude=37.3758&reviewCnt=5&scoreAvg=3.5
 	JDBConnect jdbConnect = new JDBConnect();
 	
@@ -68,7 +69,7 @@
 		
 	
 		 // 2. 동적 SQL 생성
-		String sql =" INSERT INTO TOILET_DETAIL( "
+		String sql2 =" INSERT INTO TOILET_DETAIL( "
 				+"IDX "			
 				+",TOILET_IDX"
 				+",GENDER_YN"
@@ -100,20 +101,20 @@
 	
 				   
 				   
-		jdbCommect.psmt = jdbCommect.con.prepareStatement(sql);
-		jdbCommect.psmt.setString(1, genderYn);
-		jdbCommect.psmt.setString(2, lockYn);
-		jdbCommect.psmt.setString(3, pressureYn);
-		jdbCommect.psmt.setString(4, tissueYn);
-		jdbCommect.psmt.setString(5, soapYn);
-		jdbCommect.psmt.setString(6, toiletCnt);
-		jdbCommect.psmt.setString(7, bidetYn);
-		jdbCommect.psmt.setString(8, cleanliness);
-		jdbCommect.psmt.setString(9, facility);
-		jdbCommect.psmt.setString(10, request.getRemoteAddr());
+		jdbConnect.psmt = jdbConnect.con.prepareStatement(sql2);
+		jdbConnect.psmt.setString(1, genderYn);
+		jdbConnect.psmt.setString(2, lockYn);
+		jdbConnect.psmt.setString(3, pressureYn);
+		jdbConnect.psmt.setString(4, tissueYn);
+		jdbConnect.psmt.setString(5, soapYn);
+		jdbConnect.psmt.setString(6, toiletCnt);
+		jdbConnect.psmt.setString(7, bidetYn);
+		jdbConnect.psmt.setString(8, cleanliness);
+		jdbConnect.psmt.setString(9, facility);
+		jdbConnect.psmt.setString(10, request.getRemoteAddr());
 	
 	
-		jdbCommect.psmt.executeQuery();
+		jdbConnect.psmt.executeQuery();
 
 
 

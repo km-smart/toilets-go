@@ -8,9 +8,10 @@
 	JDBConnect jdbCommect = new JDBConnect();
 	jdbCommect.stmt = jdbCommect.con.createStatement();
 	ResultSet resultSet = jdbCommect.stmt.executeQuery(
-			"SELECT NAME, SCORE, MAIN_TEXT, INSERT_DT"
-			+ " FROM REVIEW"
-			+ " WHERE TOILET_IDX = " + request.getParameter("toiletIdx")
-);
+		"SELECT NAME, SCORE, MAIN_TEXT, INSERT_DT"
+		+ " FROM REVIEW"
+		+ " WHERE TOILET_IDX = " + request.getParameter("toiletIdx")
+		+ " ORDER BY INSERT_DT DESC"
+	);
 	out.print(JsonUtil.convertList(resultSet));
 %>
