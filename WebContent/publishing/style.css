@@ -183,6 +183,7 @@ footer .input2 img {
 .chang> .left> .title> span {
     font-weight: 300;
     font-size: 1rem;
+    margin-left: .5rem;
 }
 .chang> .left> .cont {
     flex: 1;

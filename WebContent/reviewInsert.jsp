@@ -58,6 +58,7 @@
 
         jdbCommect.psmt = jdbCommect.con.prepareStatement(updtSql);
         jdbCommect.psmt.setString(1, toiletIdx);
+        jdbCommect.psmt.setString(2, toiletIdx);
 
         jdbCommect.psmt.execute();
 
