@@ -10,6 +10,7 @@
 	ResultSet resultSet = jdbCommect.stmt.executeQuery(
 			"SELECT TI.RESTROOM_NAME"
 			+ ", TI.ADDRESS"
+			+ ", TI.DETAILED_ADDRESS"
 			+ ", TI.SCORE_AVG"
 			+ ", TI.REVIEW_CNT" 
 			+ ", TD.IDX"

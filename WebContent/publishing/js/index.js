@@ -66,12 +66,14 @@ $(function () {
         // 데이터 세팅
         const tData = $(".chang").data("toiletInfo");
         const $detailPopup = $("#detailPopup");
-        tData.foreach((key, value) => {
+        Object.keys(tData).forEach(function(key){
+            const value = tData[key];
             const $input = $detailPopup.find(`[name=${key}]`);
-            const type = $input.attr("type");
-            if (type === "text" || type === "textarea") {
+            if($input.length === 0) return;
+            const type = $input.attr("type") ? $input.attr("type") : $input[0].tagName;
+            if (type === "text" || type === "number" || type === "TEXTAREA") {
                 $input.val(value);
-            } else { // radio일 때
+            } else if(type === "radio"){ // radio일 때
                 $detailPopup.find(`[name=${key}][value=${value}]`).prop("checked", true);
             }
         });
@@ -82,7 +84,7 @@ $(function () {
     // 화장실 정보 작성
     $("#infoAddPopupBtn").on("click", function () {
         // 리뷰작성창의 입력 필드를 초기화
-        $("#detailPopup input, #detailPopup textarea").val('');
+        $("#detailPopup input:not([type=radio]), #detailPopup textarea").val('');
         $("#detailPopup input[type=radio]").prop('checked', false);
         // "등록하기" 버튼 나타나게
         $("#detailPopup, #detailPopup .btn-wrap").css("display", "flex");
@@ -172,7 +174,7 @@ function refreshMarker() {
             // 마커를 생성합니다
             const marker = new kakao.maps.Marker({
                 map: map, // 마커를 표시할 지도
-                position: new kakao.maps.LatLng(item.lot, item.lat), // 마커를 표시할 위치
+                position: new kakao.maps.LatLng(item.latitude, item.longitude), // 마커를 표시할 위치
                 image: markerImage // 마커 이미지 
             });
 
