@@ -58,6 +58,7 @@ $(function () {
     $(".chang #detailBtn").on("click", function () {
         // 텍스트 읽기 전용으로 설정
         $("#detailPopup input, #detailPopup textarea").prop('readonly', true);
+        $("#detailPopup .title h1").text('화장실 정보');
         $("#detailPopup input[type=radio]").attr('onclick', "return false").prop("checked", false);
         
         // "등록하기" 버튼 숨기게
@@ -85,6 +86,8 @@ $(function () {
     $("#infoAddPopupBtn").on("click", function () {
         // 리뷰작성창의 입력 필드를 초기화
         $("#detailPopup input:not([type=radio]), #detailPopup textarea").val('');
+        $("#detailPopup .title h1").text('화장실 등록');
+
         $("#detailPopup input[type=radio]").prop('checked', false);
         // "등록하기" 버튼 나타나게
         $("#detailPopup, #detailPopup .btn-wrap").css("display", "flex");
