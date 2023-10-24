@@ -20,10 +20,9 @@
   <header>
     <div class="input">
       <input type="text" id="keyword" size="15" placeholder="장소를 검색해주세요.">
-      <span id="searchBtn"><img src="img/search.png" alt=""></span>
-      <ul class="search-result" id="placesList"></ul>
+      <span class="search-btn"><img src="img/search.png" alt=""></span>
+      <ul class="search-result"></ul>
     </div>
-
   </header>
   <footer>
     <div class="sub2"><img src="img/location.png" alt=""></div>
@@ -50,12 +49,12 @@
   <div id="reviewPopup" class="popup-wrap blue-outline-box">
     <div class="info-header">
       <h4>화장실 리뷰</h4>
-      <button class="cancel"><img class="close-icon" src="img/close.png"></button>
+      <button type="button" class="cancel"><img class="close-icon" src="img/close.png"></button>
     </div>
     <div class="contents"></div>
     <div class="btn">
-      <button id="reviewWriteBtn">리뷰쓰기<img src="img/write.png" alt=""></button>
-      <button id="reviewRefresh">새로고침<img src="img/refresh.png" alt=""></button>
+      <button type="button" id="reviewWriteBtn">리뷰쓰기<img src="img/write.png" alt=""></button>
+      <button type="button" id="reviewRefresh">새로고침<img src="img/refresh.png" alt=""></button>
     </div>
   </div>
 
@@ -81,7 +80,7 @@
         </div>
       </form>
 
-      <button id="reviewAddBtn">등록하기<img src="img/submit.png"></button>
+      <button type="button" id="reviewAddBtn">등록하기<img src="img/submit.png"></button>
     </div>
   </div>
 
@@ -96,7 +95,14 @@
         <!--카카오 주소 검색으로 나오는 애-->
         <div class="input-box">
           <span>주소</span>
-          <input type="text" name="address" />
+
+          <div class="input" id="addressInput">
+            <input type="text" name="address" placeholder="장소를 검색해주세요.">
+            <input type="hidden" name="latitude">
+            <input type="hidden" name="longitude">
+            <span class="search-btn"><img src="img/search.png" alt=""></span>
+            <ul class="search-result"></ul>
+          </div>
         </div>
         <div class="input-box">
           <!--사용자가 입력하는 애-->
@@ -180,7 +186,7 @@
       </div>
 
       <div class="btn-wrap">
-        <button id="detailInfoAddBtn">등록하기<img src="img/submit.png"></button>
+        <button type="button" id="detailInfoAddBtn">등록하기<img src="img/submit.png"></button>
       </div>
     </form>
   </div>

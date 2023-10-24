@@ -122,10 +122,10 @@
 
 
 		//ResultSet을 JSON으로 변환
-        out.print("{\"mgs\": \"ok\"}");
+        out.print("{\"msg\": \"ok\"}");
 	} catch(Exception e){
 		e.printStackTrace();
-        out.print("{\"mgs\": \"no\"}");
+        out.print("{\"msg\": \"no\"}");
 	} finally {
 		jdbConnect.close();
 	}
