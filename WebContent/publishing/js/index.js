@@ -93,8 +93,9 @@ $(function () {
     $("#infoAddPopupBtn").on("click", function () {
         $("#detailPopup input[name=address]").off("keydown");
         // 리뷰작성창의 입력 필드를 초기화
-        $("#detailPopup input:not([name=address]), #detailPopup textarea").prop('readonly', false);
+        $("#detailPopup input, #detailPopup textarea").prop('readonly', false);
         $("#detailPopup input:not([type=radio]), #detailPopup textarea").val('');
+        $("#detailPopup input[type=radio]").attr('onclick', null).prop("checked", false);
         $("#detailPopup .title h1").text('화장실 등록');
 
         $("#detailPopup input[type=radio]").prop('checked', false);
